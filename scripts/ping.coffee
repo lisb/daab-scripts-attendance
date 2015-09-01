@@ -65,6 +65,8 @@ module.exports = (robot) ->
     
     if not value?
       date = new Date()
+      if date.getTimezoneOffset() != -540  # JST
+        date = new Date(date.getTime() + 540 * 60 * 1000)
       shift = robot.brain.get("timeshift-#{res.message.user.id}")
       if shift? 
         date = new Date(date.getTime() + parseFloat(shift) * 3600 * 1000)
