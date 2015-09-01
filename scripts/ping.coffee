@@ -10,7 +10,7 @@
 request = require 'request'
 
 botName = "勤怠管理ボット"
-botEmail = "expensive.frog@gmail.com"
+botEmail = process.env.HUBOT_ATTENDANCE_EMAIL
 
 GAS_URL = process.env.HUBOT_ATTENDANCE_URL
 TOKEN   = process.env.HUBOT_ATTENDANCE_TOKEN
