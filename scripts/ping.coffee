@@ -30,24 +30,24 @@ module.exports = (robot) ->
              ・「+1」「-0.75」で時差を考慮します。
              """
 
-  robot.hear /^https:\/\/drive.google.com\/open/, (res) ->
+  robot.hear /^(Hubot )?https:\/\/drive.google.com\/open/i, (res) ->
     res.send "ブラウザで開いたときの https://docs.google.com/spreadsheets/... でお願いします。"
 
-  robot.hear /^(https:\/\/docs.google.com\/spreadsheets\/.*\/edit)/, (res) ->
-    robot.brain.set("sheet-url-#{res.message.user.id}", res.match[1])
+  robot.hear /^(Hubot )?(https:\/\/docs.google.com\/spreadsheets\/.*\/edit)/i, (res) ->
+    robot.brain.set("sheet-url-#{res.message.user.id}", res.match[2])
     res.send """
              #{res.message.user.name}さんの勤怠管理のURLを覚えました。
              共有設定で #{botEmail} を編集者として登録しておいてください
              """
 
-  robot.hear /^([+-＋−][0-9.]+)/, (res) ->
-    robot.brain.set("timeshift-#{res.message.user.id}", res.match[1])
+  robot.hear /^(Hubot )?([+-＋−][0-9.]+)/i, (res) ->
+    robot.brain.set("timeshift-#{res.message.user.id}", res.match[2])
     res.send "#{res.message.user.name}さんの勤怠管理の時差を覚えました。"
 
-  robot.hear /^(おはよう|お早う)/, (res) ->
+  robot.hear /^(Hubot )?(おはよう|お早う)/, (res) ->
     updateSheet res, "inTime"
 
-  robot.hear /^(おつかれ|お疲れ)/, (res) ->
+  robot.hear /^(Hubot )?(おつかれ|お疲れ)/, (res) ->
     updateSheet res, "outTime"
 
   robot.hear "stamp", (res) ->
