@@ -43,7 +43,7 @@ function updateSheet(ss, params) {
     name = "0901-0915";
   } else {
     var m = day <= 15 ? month - 1 : month;
-    name = ('0' + m).slice(-2) + "16-" + ('0' + (m + 1)).slice(-2) + "15";
+    name = ('0' + m).slice(-2) + "16-" + ('0' + (m % 12 + 1)).slice(-2) + "15";
   }
   
   var sheet = ss.getSheetByName(name);
