@@ -7,7 +7,13 @@
 #   hubot time - Reply with current time
 #   hubot die - End hubot process
 
-request = require 'request'
+# request = require 'request'
+request = require '../gas-execution'
+request.setOptions
+  secretPath: './client_secret.json'
+  tokenPath: './access_token.json'
+  scopes: ['https://www.googleapis.com/auth/spreadsheets']
+  scriptId: process.env.HUBOT_ATTENDANCE_SCRIPT_ID
 
 botName = "勤怠管理ボット"
 botEmail = process.env.HUBOT_ATTENDANCE_EMAIL

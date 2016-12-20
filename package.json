@@ -2,27 +2,24 @@
   "name": "starter",
   "version": "0.2.1",
   "private": true,
-
   "author": "L is B corp.",
-
   "keywords": [
     "hubot",
     "direct",
     "bot",
     "daab"
   ],
-
   "description": "A simple helpful robot for your Company",
-
   "dependencies": {
-    "lisb-hubot":    "^2.16.0",
-    "hubot-scripts": ">= 2.5.7 < 3.0.0",
     "forever": "0.13.0",
+    "google-auth-library": "^0.9.10",
+    "googleapis": "^15.0.0",
+    "hubot-scripts": ">= 2.5.7 < 3.0.0",
+    "lisb-hubot": "^2.16.0",
     "request": "^2.61.0"
   },
-
   "engines": {
     "node": ">= 0.8.x",
-    "npm":  ">= 1.1.x"
+    "npm": ">= 1.1.x"
   }
 }

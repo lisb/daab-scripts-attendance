@@ -4,3 +4,4 @@ node_modules
 hubot*.log
 .env
 
+client_secret.json
